@@ -10,6 +10,8 @@
 # documentation for the Fortify actions used, and the Fortify on Demand / ScanCentral Client product documentation. If you need additional     #
 # assistance with configuration, feel free to create a help ticket in the Fortify on Demand portal.                                            #
 ################################################################################################################################################
+- name: Fortify ScanCentral Scan
+  uses: fortify/gha-setup-scancentral-client@v1.2.0
 
 name: Fortify on Demand Scan
 

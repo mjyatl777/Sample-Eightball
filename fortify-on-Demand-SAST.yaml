@@ -51,7 +51,7 @@ jobs:
           SSC_UPLOAD_TOKEN: ${{ e5a5df04-3024-48b7-9dce-e64193fefb36 }}
           APPLICATION: "sample_eightball"
           VERSION: "1.0"
-          BUILD_OPTS: "-bt mvn"
+          BUILD_OPTS: "-bt none"
 
       ### Archive ScanCentral Client logs on failure ###
       - name: Save ScanCentral Logs

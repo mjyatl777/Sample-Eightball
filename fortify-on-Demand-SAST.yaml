@@ -10,8 +10,6 @@
 # documentation for the Fortify actions used, and the Fortify on Demand / ScanCentral Client product documentation. If you need additional     #
 # assistance with configuration, feel free to create a help ticket in the Fortify on Demand portal.                                            #
 ################################################################################################################################################
-- name: Fortify ScanCentral Scan
-  uses: fortify/gha-setup-scancentral-client@v1.2.0
 
 name: Fortify on Demand Scan
 
@@ -53,8 +51,8 @@ jobs:
       #   ScanCentral has additional options that should be set for PHP and Python projects
       #   For other build tools, add your build commands to download necessary dependencies and prepare according to Fortify on Demand Packaging documentation.
       #   ScanCentral Client documentation is located at https://www.microfocus.com/documentation/fortify-software-security-center/ 
-      - name: Download Fortify ScanCentral Client
-        uses: fortify/gha-setup-scancentral-client@v1
+      - name: Fortify ScanCentral Scan
+        uses: fortify/gha-setup-scancentral-client@v1.2.0
       - name: Package Code + Dependencies
         run: scancentral package $PACKAGE_OPTS -o package.zip
         env:

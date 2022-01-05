@@ -51,7 +51,7 @@ on:
         env: 
           FOD_TENANT: ${{ POV_BSI }}  
           FOD_USER: ${{ POV37502 }}
-          FOD_PAT: ${{ d1xWQUdaQlkyXGFmQ1E3N1NCRUpKNjJoUUosUUpX0 }}
+          FOD_PAT: ${{ Qk5mQnEzU2lYbCdMZU15cDYwZzMqeC1ZOUZsck5B0 }}
           FOD_RELEASE_ID: ${{ 281836 }}
           FOD_URL: "https://ams.fortify.com/"
           FOD_API_URL: "https://api.ams.fortify.com/"

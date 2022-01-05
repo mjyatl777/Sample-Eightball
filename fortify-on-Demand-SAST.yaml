@@ -50,7 +50,7 @@ on:
         run: java -jar $FOD_UPLOAD_JAR -z package.zip -aurl $FOD_API_URL -purl $FOD_URL -rid "$FOD_RELEASE_ID" -tc "$FOD_TENANT" -uc "$FOD_USER" "$FOD_PAT" $FOD_UPLOADER_OPTS -n "$FOD_UPLOADER_NOTES"
         env: 
           FOD_TENANT: ${{ POV_BSI }}  
-          FOD_USER: ${{ X2RndGBUVjAyZVVpclNdUXBIdnV0Q3YwN21MQzhR0 }}
+          FOD_USER: ${{ POV37502 }}
           FOD_PAT: ${{ d1xWQUdaQlkyXGFmQ1E3N1NCRUpKNjJoUUosUUpX0 }}
           FOD_RELEASE_ID: ${{ 281836 }}
           FOD_URL: "https://ams.fortify.com/"

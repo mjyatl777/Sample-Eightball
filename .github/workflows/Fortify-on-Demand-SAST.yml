@@ -18,8 +18,16 @@ fortify-sast-scancentral:
   #   ScanCentral has additional options that should be set for PHP and Python projects.
   #   For other build tools (-bt none), add your build commands to download necessary dependencies.
   #   ScanCentral documentation is located at https://www.microfocus.com/documentation/fortify-software-security-center/ 
-  variables:
-   
+    env: 
+          CLIENT_KEY: ${{ secrets.CLIENT_KEY }}  
+          SSC_URL: ${{ secrets.SSC_URL }}
+          SSC_TOKEN: ${{ secrets.SSC_TOKEN }}
+          SCANCENTRAL_BUILD_OPTS: ${{ secrets.SCANCENTRAL_BUILD_OPTS }}
+		  POOL: ${{ secrets.POOL }}
+		  SSC_APP: ${{ secrets.SSC_APP }}
+		  SSC_PV: ${{ secrets.SSC_PV }}
+		  CI_TOKEN_SC: ${{ secrets.CI_TOKEN_SC }}
+		   
 
   # Run Fortify ScanCentral Client. SSC_URL and SSC_TOKEN are expected as GitLab CICD Variables in the template (masking recommended).
   script:
@@ -28,4 +36,3 @@ fortify-sast-scancentral:
     - 'scancentral -sscurl secrets.SSC_URL -ssctoken secrets.SSC_TOKEN start secrets.SCANCENTRAL_BUILD_OPTS -pool secrets.POOL -upload -application secrets.SSC_APP -version secrets.SSC_PV -uptoken secrets.CI_TOKEN_SC' 
   
   allow_failure: true
-

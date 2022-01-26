@@ -103,19 +103,31 @@ jobs:
 # available in the comments throughout the template and the Fortify ScanCentral product documentation.                                         #
 ################################################################################################################################################
 
-fortify-sast-scancentral:
-  image: fortifydocker/fortify-ci-tools:latest
+name: ScanCentral SAST Scan
 
-  # Update/override variables based on the ScanCentral Client documentation for your project's included tech stack(s). Helpful hints:
-  #   ScanCentral Client will download dependencies for maven (-bt mvn) and gradle (-bt gradle).
-  #   The current fortify-ci-tools image is Linux only at this time. Msbuild integration is not currently supported.
-  #   ScanCentral has additional options that should be set for PHP and Python projects.
-  #   For other build tools (-bt none), add your build commands to download necessary dependencies.
-  #   ScanCentral documentation is located at https://www.microfocus.com/documentation/fortify-software-security-center/
-  # Run Fortify ScanCentral Client. SSC_URL and SSC_TOKEN are expected as GitLab CICD Variables in the template (masking recommended).
-  script:
-    - touch /opt/Fortify/ScanCentral/Core/config/client.properties
-    - echo "client_auth_token=secrets.CLIENT_KEY" > /opt/Fortify/ScanCentral/Core/config/client.properties
-    - 'scancentral -sscurl secrets.SSC_URL -ssctoken secrets.SSC_TOKEN start secrets.SCANCENTRAL_BUILD_OPTS -pool secrets.POOL -upload -application secrets.SSC_APP -version secrets.SSC_PV -uptoken secrets.CI_TOKEN_SC' 
-  
-  allow_failure: true
+on: 
+  workflow_dispatch:
+  push:
+    branches: [master]
+  pull_request:
+    # The branches below must be a subset of the branches above
+    branches: [master]
+
+jobs:
+  ScanCentral-SAST-Scan:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-java@v1
+        with:
+          java-version: 11
+      - uses: fortify/gha-setup-scancentral-client@v2
+        with:
+          client-auth-token: CHANGEME321!
+      - run: scancentral -url https://ssc.protocyberresfh.com start -bt mvn
+      - uses: actions/upload-artifact@v2
+        if: always()
+        with:
+          name: scancentral-logs
+          path: ~/.fortify/scancentral/log

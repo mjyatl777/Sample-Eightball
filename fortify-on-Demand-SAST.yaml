@@ -28,5 +28,3 @@ fortify-sast-scancentral:
     - 'scancentral -sscurl secrets.SSC_URL -ssctoken secrets.SSC_TOKEN start secrets.SCANCENTRAL_BUILD_OPTS -pool secrets.POOL -upload -application secrets.SSC_APP -version secrets.SSC_PV -uptoken secrets.CI_TOKEN_SC' 
   
   allow_failure: true
-
-

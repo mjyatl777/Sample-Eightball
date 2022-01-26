@@ -8,7 +8,6 @@
 # environment variables below to configure scanning for an existing application in Fortify Software Security Center. Additional information is #
 # available in the comments throughout the template and the Fortify ScanCentral product documentation.                                         #
 ################################################################################################################################################
-
 fortify-sast-scancentral:
 image: fortifydocker/fortify-ci-tools:latest
 

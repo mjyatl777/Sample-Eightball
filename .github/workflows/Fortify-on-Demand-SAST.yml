@@ -10,7 +10,7 @@
 ################################################################################################################################################
 
 fortify-sast-scancentral:
-  image: fortifydocker/fortify-ci-tools:latest
+image: fortifydocker/fortify-ci-tools:latest
 
   # Update/override variables based on the ScanCentral Client documentation for your project's included tech stack(s). Helpful hints:
   #   ScanCentral Client will download dependencies for maven (-bt mvn) and gradle (-bt gradle).

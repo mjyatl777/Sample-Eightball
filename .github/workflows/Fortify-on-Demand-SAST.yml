@@ -1,13 +1,6 @@
 fortify-sast-scancentral:
 image: fortifydocker/fortify-ci-tools:latest
-
-  # Update/override variables based on the ScanCentral Client documentation for your project's included tech stack(s). Helpful hints:
-  #   ScanCentral Client will download dependencies for maven (-bt mvn) and gradle (-bt gradle).
-  #   The current fortify-ci-tools image is Linux only at this time. Msbuild integration is not currently supported.
-  #   ScanCentral has additional options that should be set for PHP and Python projects.
-  #   For other build tools (-bt none), add your build commands to download necessary dependencies.
-  #   ScanCentral documentation is located at https://www.microfocus.com/documentation/fortify-software-security-center/ 
-  script:
+script:
   	  CLIENT_KEY: ${{ secrets.CLIENT_KEY }}  
           SSC_URL: ${{ secrets.SSC_URL }}
           SSC_TOKEN: ${{ secrets.SSC_TOKEN }}

@@ -103,7 +103,7 @@ jobs:
 # available in the comments throughout the template and the Fortify ScanCentral product documentation.                                         #
 ################################################################################################################################################
 
-name: ScanCentral SAST Scan
+
 
 on: 
   workflow_dispatch:
